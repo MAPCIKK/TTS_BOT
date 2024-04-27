@@ -1,5 +1,11 @@
-telebot_token = ''
+import requests
+telebot_token = input('Введите свой токен от BOTfather')
+def create_new_token():
+    metadata_url = "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token"
+    headers = {"Metadata-Flavor": "Google"}
+    response = requests.get(metadata_url, headers=headers)
+    return response.json()
+IAMTOKEN = create_new_token()
 MAX_USER_TTS_SYMBOLS = 1000
 MAX_TTS_SYMBOLS = 200
-IAMTOKEN = 't1.9euelZrGjsqLno2bx4zNj8mNkc6ejO3rnpWalpKTiZGPkpuMyMeWzZvNnI7l9PcIIE1O-e8gWSnE3fT3SE5KTvnvIFkpxM3n9euelZqKlpeKmYmPjpKKnY6dyYmLiu_8xeuelZqKlpeKmYmPjpKKnY6dyYmLir3rnpWaj5eRl5WSjZaTnpmVlZSUxpy13oac0ZyQko-Ki5rRi5nSnJCSj4qLmtKSmouem56LntKMng.bLRfP5uHmARDhQ2HMwfftBlUTXydlx3rQHG9VEJKf0PgglE9I9pcjIkICCDkW4iT-ziExD2kVZDgeVK_fXOnAA'
-FOLDER_ID = 'b1glkbr70eiij7so49ao'
+FOLDER_ID = input('Введите совй фолдер айди')
